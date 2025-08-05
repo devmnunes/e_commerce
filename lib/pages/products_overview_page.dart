@@ -33,6 +33,13 @@ class ProductsOverviewPage extends StatelessWidget {
               }
             },
           ),
+        
+
+          Badge(
+            child: IconButton(onPressed: () {},
+                 icon: Icon(Icons.shopping_cart),
+                 ),
+          ),
         ],
       ),
 
