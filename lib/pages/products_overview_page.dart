@@ -36,6 +36,7 @@ class ProductsOverviewPage extends StatelessWidget {
         
 
           Badge(
+            alignment: Alignment.topLeft,
             child: IconButton(onPressed: () {},
                  icon: Icon(Icons.shopping_cart),
                  ),
