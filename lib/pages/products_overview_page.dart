@@ -1,9 +1,13 @@
+import 'package:e_commerce/blocs/product_bloc.dart';
+import 'package:e_commerce/blocs/product_state.dart';
 import 'package:e_commerce/components/product_grid.dart';
 import 'package:e_commerce/models/product.dart';
 import 'package:e_commerce/models/product_list.dart';
 import 'package:e_commerce/widgets/city_line.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 enum FilterOptions { Favorites, All }
 
@@ -53,7 +57,18 @@ class ProductsOverviewPage extends StatelessWidget {
         ],
       ),
 
-      body: Padding(padding: const EdgeInsets.all(10), child: ProductGrid()),
+      body: BlocBuilder<ProductBloc, ProductState>(
+            builder: (context, state) {
+            if (state is ProductLoadingState) {
+            return Center(child: CircularProgressIndicator());
+            } else if (state is ProductErrorState) {
+              return Center(child: Text('Erro ao carregar produtos.'));
+            } else if (state is ProductLoadedState) {
+              return ProductGrid();
+            }
+          return Container();
+            },
+      ),
     );
   }
 }

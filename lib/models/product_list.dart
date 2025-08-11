@@ -6,6 +6,7 @@ class ProductList with ChangeNotifier {
    List<Product> _items = dummyProducts;
    bool _showFavoriteOnly = false;
 
+
    List<Product> get items {
     if (_showFavoriteOnly) {
       return _items.where((prod) => prod.isFavorite).toList();
@@ -27,4 +28,6 @@ class ProductList with ChangeNotifier {
     _items.add(product);
     notifyListeners();
    }
+
+   
 }

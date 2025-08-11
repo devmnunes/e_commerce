@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce/blocs/product_events.dart';
 import 'package:e_commerce/blocs/product_state.dart';
+import 'package:e_commerce/models/product.dart';
 import 'package:e_commerce/models/product_list.dart';
 
 class ProductBloc extends Bloc<ProductEvents, ProductState> {
@@ -21,7 +22,7 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
     }
       else if (event is FilterProductsEvents) {
         yield ProductLoadedState(
-          event.isFavorite ?  : productList.items
+          productList.items,
         );
       }
     }
