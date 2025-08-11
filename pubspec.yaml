@@ -39,6 +39,7 @@ dependencies:
   bloc: ^9.0.0
   geolocator: ^14.0.2
   geocoding: ^4.0.0
+  flutter_bloc: ^9.1.1
   
 
 dev_dependencies:

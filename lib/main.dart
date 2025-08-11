@@ -1,9 +1,11 @@
+import 'package:e_commerce/blocs/product_bloc.dart';
 import 'package:e_commerce/models/cart.dart';
 import 'package:e_commerce/models/product_list.dart';
 import 'package:e_commerce/pages/product_detail_page.dart';
 import 'package:e_commerce/pages/products_overview_page.dart';
 import 'package:e_commerce/utils/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -26,6 +28,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_)  => Cart(),
         ),
+        BlocProvider(
+          create: (context) => ProductBloc(ProductList()),
+        ),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -60,10 +60,12 @@ class ProductsOverviewPage extends StatelessWidget {
       body: BlocBuilder<ProductBloc, ProductState>(
             builder: (context, state) {
             if (state is ProductLoadingState) {
-            return Center(child: CircularProgressIndicator());
-            } else if (state is ProductErrorState) {
+            return ProductGrid();
+            } 
+            else if (state is ProductErrorState) {
               return Center(child: Text('Erro ao carregar produtos.'));
-            } else if (state is ProductLoadedState) {
+            }
+             else if (state is ProductLoadedState) {
               return ProductGrid();
             }
           return Container();
