@@ -1,6 +1,7 @@
 import 'package:e_commerce/components/product_grid.dart';
 import 'package:e_commerce/models/product.dart';
 import 'package:e_commerce/models/product_list.dart';
+import 'package:e_commerce/widgets/city_line.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,15 @@ class ProductsOverviewPage extends StatelessWidget {
     final provider = Provider.of<ProductList>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Minha Loja'),
+        title: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Minha Loja'),
+            SizedBox(height: 2),
+            CityLine(),
+          ],
+        ),
         iconTheme: IconThemeData(color: Colors.white),
         actions: [
           PopupMenuButton(
