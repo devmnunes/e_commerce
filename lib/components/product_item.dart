@@ -1,3 +1,4 @@
+import 'package:e_commerce/blocs/product_bloc.dart';
 import 'package:e_commerce/models/cart.dart';
 import 'package:e_commerce/models/product.dart';
 import 'package:e_commerce/utils/app_routes.dart';
@@ -9,6 +10,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context, listen: false);
+    final productBloc = context.read<ProductBloc>();
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),

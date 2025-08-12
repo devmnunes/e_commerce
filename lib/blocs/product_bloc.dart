@@ -8,7 +8,7 @@ import 'dart:async';
 class ProductBloc extends Bloc<ProductEvents, ProductState> {
   final ProductList productList;
 
-  ProductBloc(this.productList) : super(ProductLoadingState());
+  ProductBloc(this.productList) : super(ProductLoadedState(productList.items));
 
   @override
   Stream<ProductState> mapEventToState(ProductEvents event) async* {
