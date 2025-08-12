@@ -1,6 +1,8 @@
 import 'package:e_commerce/models/product.dart';
 
-abstract class ProductState{}
+abstract class ProductState{
+
+}
 
 class ProductLoadingState extends ProductState {}
 

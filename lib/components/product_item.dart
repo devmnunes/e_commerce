@@ -1,6 +1,7 @@
 import 'package:e_commerce/blocs/product_bloc.dart';
 import 'package:e_commerce/models/cart.dart';
 import 'package:e_commerce/models/product.dart';
+import 'package:e_commerce/models/product_list.dart';
 import 'package:e_commerce/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,9 +9,9 @@ import 'package:provider/provider.dart';
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
+    //final product = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context, listen: false);
-    final productBloc = context.read<ProductBloc>();
+    final product = context.select<ProductBloc, Product>((bloc) => bloc.state.product);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
