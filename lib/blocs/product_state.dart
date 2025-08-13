@@ -1,13 +1,13 @@
 import 'package:e_commerce/models/product.dart';
 
 abstract class ProductState{
-
+  
 }
 
 class ProductLoadingState extends ProductState {}
 
 class ProductLoadedState extends ProductState {
-  final List<Product> products;
+  final Product products;
   ProductLoadedState(this.products);
 }
 
