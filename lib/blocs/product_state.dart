@@ -7,7 +7,7 @@ abstract class ProductState{
 class ProductLoadingState extends ProductState {}
 
 class ProductLoadedState extends ProductState {
-  final Product products;
+  final List<Product> products;
   ProductLoadedState(this.products);
 }
 
