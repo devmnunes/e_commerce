@@ -1,10 +1,7 @@
 abstract class ProductEvents {}
 
-class FetchProductsEvents extends ProductEvents {}
-
-class FilterProductsEvents extends ProductEvents {
-  final bool isFavorite;
-
-  FilterProductsEvents(this.isFavorite);
-
+class FetchProductsEvent extends ProductEvents {}
+class FilterProductsEvent extends ProductEvents {
+  final bool isFavorites;
+  FilterProductsEvent(this.isFavorites);
 }
