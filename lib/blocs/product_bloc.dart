@@ -10,7 +10,6 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
 
   ProductBloc(this.productList) : super(ProductLoadedState(productList.items));
 
-  @override
   Stream<ProductState> mapEventToState(ProductEvents event) async* {
     if (event is FetchProductsEvent) {
       yield ProductLoadingState();
@@ -25,4 +24,5 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
       );
     }
   }
+
 }

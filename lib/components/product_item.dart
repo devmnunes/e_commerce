@@ -13,42 +13,46 @@ class ProductItem extends StatelessWidget {
 
 
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
+    //final product = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context, listen: false);
+    final product = context.select<ProductBloc, Product>((bloc) => bloc.state.products);
 
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: GridTile(
-        child: GestureDetector(
-          child: Image.network(product.imageUrl, fit: BoxFit.cover),
-          onTap: () {
-            Navigator.of(
-              context,
-            ).pushNamed(AppRoutes.PRODUCT_DETAIL, arguments: product);
-          },
-        ),
-        footer: GridTileBar(
-          backgroundColor: Colors.black45,
-          leading: BlocBuilder<ProductBloc, Product>(
-            builder: (context, product) => IconButton(
-              icon: Icon(
-                product.isFavorite 
-                ? Icons.favorite 
-                : Icons.favorite_border,
-              ),
-              color: Theme.of(context).colorScheme.secondary,
-              onPressed: () {
-                product.toggleFavorite();
-              },
-            ),
-          ),
-          title: Text(product.title, textAlign: TextAlign.center),
-          trailing: IconButton(
-            onPressed: () {
-              cart.addItem(product);
+    return BlocProvider(
+      create: (context) => ProductBloc(ProductList()),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: GridTile(
+          child: GestureDetector(
+            child: Image.network(product.imageUrl, fit: BoxFit.cover),
+            onTap: () {
+              Navigator.of(
+                context,
+              ).pushNamed(AppRoutes.PRODUCT_DETAIL, arguments: product);
             },
-            icon: Icon(Icons.shopping_cart),
-            color: Theme.of(context).colorScheme.secondary,
+          ),
+          footer: GridTileBar(
+            backgroundColor: Colors.black45,
+            leading: BlocBuilder<ProductBloc, ProductState>(
+              builder: (context, state) => IconButton(
+                icon: Icon(
+                  product.isFavorite
+                  ? Icons.favorite 
+                  : Icons.favorite_border,
+                ),
+                color: Theme.of(context).colorScheme.secondary,
+                onPressed: () {
+                  
+                },
+              ),
+            ),
+            title: Text(product.title, textAlign: TextAlign.center),
+            trailing: IconButton(
+              onPressed: () {
+                cart.addItem(product);
+              },
+              icon: Icon(Icons.shopping_cart),
+              color: Theme.of(context).colorScheme.secondary,
+            ),
           ),
         ),
       ),
