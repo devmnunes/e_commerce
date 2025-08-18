@@ -15,7 +15,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     //final product = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context, listen: false);
-    final product = context.select<ProductBloc, Product>((bloc) => bloc.state.products);
+    final product = context.watch<ProductBloc>().state.products;
 
     return BlocProvider(
       create: (context) => ProductBloc(ProductList()),
