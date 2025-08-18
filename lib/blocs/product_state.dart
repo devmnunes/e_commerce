@@ -1,6 +1,5 @@
 import 'package:e_commerce/models/product.dart';
-import 'package:e_commerce/models/product_list.dart';
-import 'package:flutter/widgets.dart';
+
 
 /*abstract class ProductState {
 }*/
