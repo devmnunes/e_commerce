@@ -3,8 +3,10 @@ abstract class ProductEvents {}
 class FetchProductsEvent extends ProductEvents {}
 
 class FilterProductsEvent extends ProductEvents {
-  final bool isFavorites;
+  bool isFavorites;
   FilterProductsEvent(this.isFavorites);
+
+  
 }
 
 

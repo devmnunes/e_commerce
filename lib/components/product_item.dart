@@ -34,7 +34,7 @@ class ProductItem extends StatelessWidget {
             ),
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
-              product.toggleFavorite();
+              context.read<ProductBloc>().add(ToggleFavorite(product.id));
             },
           ),
           title: Text(product.title, textAlign: TextAlign.center),

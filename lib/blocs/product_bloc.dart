@@ -23,5 +23,4 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
       );
     }
   }
-
 }
