@@ -16,6 +16,7 @@ class ProductsOverviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ProductList>(context);
+    
     return Scaffold(
       appBar: AppBar(
         title: Column(

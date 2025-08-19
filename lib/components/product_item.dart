@@ -37,7 +37,6 @@ class ProductItem extends StatelessWidget {
             ),
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
-              context.read<ProductBloc>().add();
               product.toggleFavorite();
               
               ScaffoldMessenger.of(context).hideCurrentSnackBar();

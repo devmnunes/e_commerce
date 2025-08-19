@@ -4,6 +4,8 @@ import 'package:e_commerce/blocs/product_state.dart';
 import 'package:e_commerce/models/product_list.dart';
 import 'dart:async';
 
+enum Favoritos { like, deslike}
+
 class ProductBloc extends Bloc<ProductEvents, ProductState> {
   final ProductList productList;
 
