@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        
+      
         ChangeNotifierProvider(
           create: (_)  => ProductList(),
         ),
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch(
             primarySwatch: Colors.purple,
           ).copyWith(
-            secondary: Colors.deepOrange,
+            secondary: const Color.fromARGB(255, 241, 72, 20),
           ),
           appBarTheme: AppBarTheme(titleTextStyle: TextStyle(
             fontSize: 20,

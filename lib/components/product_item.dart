@@ -1,4 +1,5 @@
 // product_item.dart
+
 import 'package:e_commerce/blocs/product_bloc.dart';
 import 'package:e_commerce/models/cart.dart';
 import 'package:e_commerce/models/product.dart';
@@ -30,11 +31,32 @@ class ProductItem extends StatelessWidget {
           backgroundColor: Colors.black45,
           leading: IconButton(
             icon: Icon(
+              
               product.isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: Theme.of(context).colorScheme.secondary,
             ),
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
-              context.read<ProductBloc>().add(ToggleFavorite(product.id));
+              context.read<ProductBloc>().add();
+              product.toggleFavorite();
+              
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    product.isFavorite
+                        ? 'Produto adicionado aos favoritos!'
+                        : 'Produto removido dos favoritos!',
+                  ),
+                  duration: const Duration(seconds: 2),
+                  action: SnackBarAction(
+                    label: 'DESFAZER',
+                    onPressed: () {
+                     product.toggleFavorite();
+                    },
+                  ),
+                ),
+              );
             },
           ),
           title: Text(product.title, textAlign: TextAlign.center),
