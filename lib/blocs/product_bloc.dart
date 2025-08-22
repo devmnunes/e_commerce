@@ -11,6 +11,8 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
 
   ProductBloc(this.productList) : super(ProductLoadedState(productList.items));
 
+  
+
   Stream<ProductState> mapEventToState(ProductEvents event) async* {
     if (event is FetchProductsEvent) {
       yield ProductLoadingState();
@@ -20,8 +22,10 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
         yield ProductErrorState();
       }
     } else if (event is FilterProductsEvent) {
+      
       yield ProductLoadedState(
          productList.items,
+        
       );
     }
   }
